@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tier List Akakatsuki</title>
+
+	<!-- 🔒 PROTECTION -->
+	<script type="module" src="../js/auth.js"></script>
+
+	<link rel="icon" type="image/svg+xml" href="../img/Akatsuki-Logo.svg"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/style-tierlist.css">
+</head>
+<body>
+
+<div class="animated-bg">
+	<div class="cloud"></div>
+	<div class="cloud"></div>
+	<div class="cloud"></div>
+</div>
+
+<div class="container">
+	<header>
+		<div class="logo-container">
+			<img src="../img/Akatsuki-Logo.svg" alt="Logo Akatsuki" class="logo">
+			<h1>Tier List de l'Akakatsuki</h1>
+			<img src="../img/Akatsuki-Logo.svg" alt="Logo Akatsuki" class="logo">
+		</div>
+		<p class="subtitle">Classement Collaboratif des Nuages Rouges</p>
+	</header>
+
+	<main>
+		<!-- CONTRÔLES -->
+		<div class="controls-panel">
+			<button class="btn-primary" id="addTierBtn">➕ Ajouter un Tier</button>
+			<button class="btn-primary" id="addItemBtn">🖼️ Ajouter un Élément</button>
+			<button class="btn-secondary" id="resetBtn">🔄 Réinitialiser</button>
+		</div>
+
+		<!-- ZONE DES ÉLÉMENTS NON CLASSÉS -->
+		<div class="unranked-zone" id="unrankedZone">
+			<h3>📦 Éléments à classer</h3>
+			<div class="items-container" id="unrankedItems" data-tier="unranked"></div>
+		</div>
+
+		<!-- TIER LIST -->
+		<div class="tier-list" id="tierList"></div>
+	</main>
+
+	<div class="button-container">
+		<button onclick="window.location.href='../../index.html';" class="button">
+			Accueil de l'Intranet
+		</button>
+	</div>
+
+	<footer>
+		<div class="footer-content">
+			<p class="copyright">
+				&copy; 2025 Akakatsuki Intranet - Organisation Secrète<br>
+				"Le monde connaîtra la douleur"
+			</p>
+		</div>
+	</footer>
+</div>
+
+<!-- MODALE: AJOUTER UN TIER -->
+<div class="modal" id="addTierModal">
+	<div class="modal-content">
+		<span class="close" id="closeTierModal">&times;</span>
+		<h2>Ajouter un Tier</h2>
+		<form id="tierForm" onsubmit="return false;">
+			<label>Nom du tier:</label>
+			<input type="text" id="tierName" placeholder="Ex: S, A, B..." required>
+			
+			<label>Couleur:</label>
+			<input type="color" id="tierColor" value="#f44336">
+			
+			<button type="button" id="saveTierBtn" class="btn-primary">Créer</button>
+		</form>
+	</div>
+</div>
+
+<!-- MODALE: AJOUTER UN ÉLÉMENT -->
+<div class="modal" id="addItemModal">
+	<div class="modal-content">
+		<span class="close" id="closeItemModal">&times;</span>
+		<h2>Ajouter un Élément</h2>
+		<form id="itemForm" onsubmit="return false;">
+			<label>Nom:</label>
+			<input type="text" id="itemName" placeholder="Ex: Pain, Itachi..." required>
+			
+			<label>Image:</label>
+			<input type="file" id="itemImage" accept="image/*" required>
+			<div id="imagePreview" class="image-preview"></div>
+			
+			<button type="button" id="saveItemBtn" class="btn-primary">Ajouter</button>
+		</form>
+	</div>
+</div>
+
+<script src="../js/tierlist.js"></script>
+<script src="../js/style.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Akakatsuki Intranet</title>
+
+	<!-- 🔥 PWA Manifest (dw app mobile) -->
+	<link rel="manifest" href="manifest.json">
+	<meta name="theme-color" content="#000000">
+
+	<!-- 🔥 Service Worker ( Écrasement de cache )-->
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('./service-worker.js')
+				.catch(err => console.log("SW registration failed: ", err));
+		}
+	</script>
+
+	<link rel="icon" type="image/svg+xml" href="src/img/Akatsuki-Logo.svg"/>
+	<link rel="stylesheet" href="src/css/style.css">
+	<link rel="stylesheet" href="src/css/style-index.css">
+</head>
+<body>
+
+<!-- Bouton Login (visible si non connecté) -->
+<button id="loginBtn" class="login-btn" style="display: none;">
+	<span class="icon">🔐</span>
+	<span>Connexion</span>
+</button>
+
+<div class="animated-bg">
+	<div class="cloud"></div>
+	<div class="cloud"></div>
+	<div class="cloud"></div>
+</div>
+
+<div class="container">
+	<header>
+		<div class="logo-container">
+			<img src="src/img/Akatsuki-Logo.svg" alt="Logo Akatsuki" class="logo">
+			<h1>AKAKATSUKI</h1>
+			<img src="src/img/Akatsuki-Logo.svg" alt="Logo Akatsuki" class="logo">
+		</div>
+		<p class="subtitle">Organisation Secrète des Nuages Rouges</p>
+	</header>
+
+	<main class="main-nav">
+		<!-- SECTION 1 : Navigation Interne -->
+		<div class="section-divider">
+			<h2 class="section-title">🏛️ Archives Internes</h2>
+			<p class="section-subtitle">Ressources de l'organisation Akakatsuki</p>
+			<div class="section-separator"></div>
+		</div>
+		
+		<div class="nav-grid">
+			<a href="src/html/histoire.html" class="nav-card">
+				<span class="card-icon">📜</span>
+				<h2 class="card-title">Histoire</h2>
+				<p class="card-description">Accès aux archives secrètes retraçant l'évolution de l'Organisation</p>
+			</a>
+
+			<a href="src/html/membres.html" class="nav-card">
+				<span class="card-icon">👤</span>
+				<h2 class="card-title">Membres</h2>
+				<p class="card-description">Identités, compétences, primes et historiques des membres</p>
+			</a>
+			
+			<a href="src/html/calendrier.html" class="nav-card">
+				<span class="card-icon">📅</span>
+				<h2 class="card-title">Calendrier</h2>
+				<p class="card-description">Planning des opérations internes de l'Akakatsuki</p>
+			</a>
+
+			<a href="src/html/evenements.html" class="nav-card">
+				<span class="card-icon">🌀</span>
+				<h2 class="card-title">Événements</h2>
+				<p class="card-description">Regroupe les événements majeurs</p>
+			</a>
+
+			<a href="src/html/tierlist.html" class="nav-card">
+				<span class="card-icon">📊</span>
+				<h2 class="card-title">Tier-list</h2>
+				<p class="card-description">Réévalué après chaque mission. La vérité est souvent… cruelle.</p>
+			</a>
+		</div>
+
+		<!-- SECTION 2 : Liens Externes -->
+		<div class="section-divider">
+			<h2 class="section-title">🌐 Portails Externes</h2>
+			<p class="section-subtitle">Accès aux ressources académiques</p>
+			<div class="section-separator"></div>
+		</div>
+		
+		<div class="nav-grid">
+			<a href="https://diw.iut.univ-lehavre.fr/pedago/index.xml" target="_blank" rel="noopener noreferrer" class="nav-card external-link">
+				<span class="card-icon">📚</span>
+				<h2 class="card-title">Intranet IUT <span class="external-icon">↗</span></h2>
+				<p class="card-description">Accès aux ressources universitaires</p>
+			</a>
+
+			<a href="https://webmail.univ-lehavre.fr/" target="_blank" rel="noopener noreferrer" class="nav-card external-link">
+				<span class="card-icon">✉️</span>
+				<h2 class="card-title">Webmail Universitaire <span class="external-icon">↗</span></h2>
+				<p class="card-description">Messagerie électronique de l'université</p>
+			</a>
+
+			<a href="https://eureka.univ-lehavre.fr/" target="_blank" rel="noopener noreferrer" class="nav-card external-link">
+				<span class="card-icon">🎓</span>
+				<h2 class="card-title">Eurêka <span class="external-icon">↗</span></h2>
+				<p class="card-description">Espace numérique de travail</p>
+			</a>
+
+			<a href="https://cas.univ-lehavre.fr/cas/login?service=https%3A%2F%2Fnotes-iut.univ-lehavre.fr%2Fservices%2FdoAuth.php%3Fhref%3Dhttps%253A%252F%252Fnotes-iut.univ-lehavre.fr%252F/" target="_blank" rel="noopener noreferrer" class="nav-card external-link">
+				<span class="card-icon">📋</span>
+				<h2 class="card-title">Notes <span class="external-icon">↗</span></h2>
+				<p class="card-description">Espace pour consulter les notes</p>
+			</a>
+		</div>
+
+		<!-- <div class="quote-section">
+			<p class="quote">
+				"La douleur est le chemin vers la compréhension mutuelle."
+			</p>
+			<p class="quote-author">- Pain</p>
+		</div> -->
+	</main>
+
+	<!-- Afficher le bouton de déconnexion seulement si connecté -->
+	<div class="button-container" id="logoutContainer" style="display: none;">
+		<button onclick="logoutFromIndex()" class="button">Se déconnecter</button>
+	</div>
+
+	<footer>
+		<div class="footer-content">
+			<p class="copyright">
+				&copy; 2025 Akakatsuki Intranet - Organisation Secrète<br>
+				"Le monde connaîtra la douleur"
+			</p>
+		</div>
+	</footer>
+</div>
+
+<!-- Modale de connexion -->
+<div id="loginModal" class="modal" style="display: none;">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<h2>Connexion Akatsuki</h2>
+		<form id="loginForm" onsubmit="return false;">
+			<input type="text" id="user" placeholder="Identifiant" required>
+			<input type="password" id="pwd" placeholder="Mot de passe" required>
+			<button type="button" id="submit">Se connecter</button>
+			<p id="msg" class="error-msg"></p>
+		</form>
+	</div>
+</div>
+
+<!-- 🔥 Firebase SDK -->
+<script type="module" src="src/js/login.js"></script>
+
+<script src="src/js/style.js" defer></script>
+
+</body>
+</html>

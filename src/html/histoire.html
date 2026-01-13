@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Histoire de l'Akatsuki</title>
+
+	<!-- 🔒 PROTECTION -->
+	<script type="module" src="../js/auth.js"></script>
+
+	<link rel="icon" type="image/svg+xml" href="../img/Akatsuki-Logo.svg"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/style-histoire.css">
+</head>
+<body>
+
+<div class="animated-bg">
+	<div class="cloud"></div>
+	<div class="cloud"></div>
+	<div class="cloud"></div>
+</div>
+
+<!-- OVERLAY SOMBRE -->
+<div class="book-overlay" id="bookOverlay"></div>
+
+<div class="container">
+	<header>
+		<div class="logo-container">
+			<img src="../img/Akatsuki-Logo.svg" alt="Logo Akatsuki" class="logo">
+			<h1>L'Histoire de l'Akakatsuki</h1>
+			<img src="../img/Akatsuki-Logo.svg" alt="Logo Akatsuki" class="logo">
+		</div>
+		<p class="subtitle">Le Cercle Rouge où naissent les Légendes</p>
+	</header>
+
+	<main>
+		<!-- ========== LIVRE FERMÉ AVEC COUCHES ========== -->
+		<div class="book-wrapper" id="bookWrapper">
+			<div class="book-3d" id="book3D">
+				<!-- Tranche (pages empilées) -->
+				<div class="book-spine-3d"></div>
+				
+				<!-- Pages intérieures (plusieurs couches) -->
+				<div class="book-page page-5"></div>
+				<div class="book-page page-4"></div>
+				<div class="book-page page-3"></div>
+				<div class="book-page page-2"></div>
+				<div class="book-page page-1"></div>
+				
+				<!-- Couverture avant -->
+				<div class="book-front-cover" id="frontCover">
+					<div class="cover-inner">
+						<div class="cover-decoration top"></div>
+						<h2 class="book-title">Chroniques<br>de l'Akakatsuki</h2>
+						<div class="cover-emblem">暁</div>
+						<p class="cover-subtitle">Les Nuages Rouges</p>
+						<div class="cover-decoration bottom"></div>
+					</div>
+					<p class="click-hint">⟡ Cliquez pour ouvrir ⟡</p>
+				</div>
+				
+				<!-- Couverture arrière -->
+				<div class="book-back-cover"></div>
+			</div>
+		</div>
+
+		<!-- ========== LIVRE OUVERT (CONTENU) ========== -->
+		<div class="book-open" id="bookOpen">
+			<button class="close-book" id="closeBookBtn">✕</button>
+			
+			<div class="book-binding"></div>
+			
+			<div class="book-pages">
+				<!-- PAGE GAUCHE = SOMMAIRE -->
+				<div class="left-page">
+					<div class="page-texture"></div>
+					
+					<div class="sommaire-header">
+						<span class="kanji-big">目次</span>
+						<h2>Sommaire</h2>
+					</div>
+					
+					<div class="season">
+						<div class="season-title">
+							<span class="season-icon">⚔️</span>
+							<span>Saison I : Les Origines</span>
+						</div>
+						<div class="chapter-list">
+							<div class="chapter-item active" data-chapter="s1c0">
+								<span class="ch-num">序</span>
+								<span class="ch-name">Prologue</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c1">
+								<span class="ch-num">一</span>
+								<span class="ch-name">La Réunion</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c2">
+								<span class="ch-num">二</span>
+								<span class="ch-name">L'infiltration du village Tilda</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c3">
+								<span class="ch-num">三</span>
+								<span class="ch-name">Le Chaos du Tilda</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c4">
+								<span class="ch-num">四</span>
+								<span class="ch-name">Le Retour du Village</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c5">
+								<span class="ch-num">五</span>
+								<span class="ch-name">Le Spectre et le Test de la Cicatrice</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c6">
+								<span class="ch-num">六</span>
+								<span class="ch-name">Le Retour de Caca du Balcon</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c7">
+								<span class="ch-num">七</span>
+								<span class="ch-name">L'Art de la Retraite</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c8">
+								<span class="ch-num">八</span>
+								<span class="ch-name">Le Réveil du Duo Écarlate</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c9">
+								<span class="ch-num">九</span>
+								<span class="ch-name">L'Alliance Inattendue</span>
+							</div>
+							<div class="chapter-item" data-chapter="s1c10">
+								<span class="ch-num">十</span>
+								<span class="ch-name">Les Anciens Alliés et la Confrontation Imminente</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="season locked">
+						<div class="season-title">
+							<span class="season-icon">🔒</span>
+							<span>Saison II : À venir...</span>
+						</div>
+					</div>
+					
+					<div class="page-footer">
+						<div class="seal">暁</div>
+					</div>
+				</div>
+
+				<!-- PAGE DROITE = CONTENU -->
+				<div class="right-page" id="rightPage">
+					<div class="page-texture"></div>
+					
+					<!-- PROLOGUE -->
+					<div class="chapter-content active" id="s1c0">
+						<div class="chapter-header">
+							<span class="chapter-number">序章</span>
+							<h3>Prologue</h3>
+							<span class="chapter-kanji">始まり</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">Le monde, tel que nous le connaissions, était une terre déchirée par la puissance. Des villages cachés s'étaient érigés, protégeant leurs habitants et abritant les plus grands ninjas que l'histoire ait jamais connus. Mais de tous, il y en avait onze, onze prodiges qui, chacun dans leur village natal, étaient promis à un avenir exceptionnel.</p>
+						
+						<p>Il y avait <strong class="character-name">Pain Perdu</strong> d'Yvetot, qui manipulait la douleur avec une froideur déconcertante, et <strong class="character-name">Konass</strong> de Saussay, dont les talents de Kunoichi étaient d'une finesse inégalée. De Brest, venaient deux âmes puissantes : <strong class="character-name">Grobito</strong>, dont l'histoire était un mystère, et <strong class="character-name">Oroshipartout</strong>, le savant fou, obsédé par l'immortalité.</p>
+						
+						<p>De Rouen, le silencieux <strong class="character-name">Sassoumis</strong> créait des marionnettes terrifiantes. De Saint-Vaast-du-Val, <strong class="character-name">Kisamerde</strong> était un épéiste impitoyable. Le village de Selens était fier d'<strong class="character-name">Itachibre</strong>, prodige du clan Uchiha.</p>
+						
+						<p><strong class="character-name">Deidarabe</strong>, un artiste de l'explosion, venait du Perray-en-Yvelines. <strong class="character-name">Kakouillezu</strong>, de Bolbec, était le maître des éléments. <strong class="character-name">Hidanus</strong>, de Bailleul, vouait son existence à une religion sanguinaire. Et enfin, de Louvetot, <strong class="character-name">Zezetsu</strong>, une énigme sur pattes, à la fois espion et guerrier.</p>
+						
+						<div class="decorative-divider">⦿</div>
+						
+						<p>Ces onze ninjas de rang S, les plus redoutables de leur génération, furent réunis par un destin commun. Ils allaient former l'<em class="important-term">Unité 731</em>, une équipe d'élite dont on disait qu'elle pourrait à elle seule pacifier le monde.</p>
+						
+						<p>Un jour, le démon à queue originel apparut, nommé <strong class="demon-name">Kama</strong>. L'Unité 731 fut envoyée. Zezetsu était en mission d'espionnage au village caché de 42, loin de l'horreur qui allait se dérouler.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Le combat fut un désastre. La puissance de Kama était au-delà de toute compréhension. »
+						</blockquote>
+						
+						<p>Hidanus et Kakouillezu tombèrent les premiers. La mission était un échec total. Le Hokage décida de dissoudre l'unité.</p>
+						
+						<p class="dramatic-text">Des cendres de l'unité brisée, naquit l'<span class="akakatsuki-name">AKAKATSUKI</span>.</p>
+						
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">La honte de l'échec face à Kama était une cicatrice que les survivants de l'Unité 731 n'allaient jamais oublier. Après la dissolution de leur équipe, ils se sont retirés dans l'ombre et ont fondé l'Akakatsuki, une organisation secrète unie par une soif de vengeance.</p>
+						
+						<p>Mais se contenter d'un rôle de parias ne suffisait pas à étancher leur rancœur. Ils voulaient frapper là où ça faisait le plus mal : au cœur du système qui les avait déshonorés.</p>
+						
+						<p>Leur plan était audacieux, à la limite de la folie. Ils décidèrent de créer leur propre puissance, un leurre pour dissimuler leur véritable objectif. Dans le plus grand secret, ils fondèrent le <em class="important-term">village caché des G</em>, une couverture parfaite pour leurs actions.</p>
+						
+						<p>Ils y placèrent de faux chefs, des "Hokage" qui n'étaient en réalité que des marionnettes, chargés de donner au village une légitimité et une puissance grandissante.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Le but était clair et sans pitié : faire du village des G une force militaire inégalée. »
+						</blockquote>
+						
+						<p>Leur cible n'était autre que <strong>Konoha</strong>, le village qui les avait jugés et laissés tomber.</p>
+						
+						<p class="dramatic-text">Le chemin de l'Akakatsuki était tracé. La vengeance n'était pas seulement leur moteur, c'était le sang neuf qui coulait dans les veines du village des G.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Les ninjas qui ont goûté à l'échec peuvent devenir les maîtres de la destruction. »
+						</blockquote>
+						
+						<div class="chapter-end">— Fin du Prologue —</div>
+					</div>
+
+					<!-- CHAPITRE 1 -->
+					<div class="chapter-content" id="s1c1">
+						<div class="chapter-header">
+							<span class="chapter-number">第一章</span>
+							<h3>La Réunion</h3>
+							<span class="chapter-kanji">再会</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">Dans les profondeurs d'une grotte isolée, là où le monde extérieur n'était qu'un lointain murmure, les silhouettes sombres de l'Akakatsuki se rassemblèrent. Loin de l'agitation des villages, l'air était lourd d'une fureur froide et d'une détermination de fer.</p>
+						
+						<p>Les survivants de l'Unité 731, unis par leur déshonneur et leur soif de vengeance, se tenaient devant leur leader.</p>
+						
+						<p>Pain Perdu, sa silhouette austère se découpant dans la pénombre, prit la parole, sa voix résonnant avec une autorité incontestable dans l'espace confiné.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Nous avons tracé notre voie, et elle passe par la destruction de ceux qui s'opposent à nous. Notre première cible est le village caché du Tilda. »
+						</blockquote>
+						
+						<p>Le village du Tilda, bien que moins imposant que Konoha, était une entité ancienne, reconnaissable à son symbole unique en forme de vague, connu pour ses traditions et ses puissants ninjas. Il était surtout un allié fidèle de Konoha, un lien que l'Akakatsuki cherchait à briser.</p>
+						
+						<p>"Leur 'Hokage', <strong class="character-name">Audric Harris</strong>," poursuivit Pain Perdu, les yeux fixés sur un point invisible, "sera un frein à notre progression. Ses liens étroits avec Konoha font de lui un obstacle direct à nos plans."</p>
+						
+						<p>Les visages masqués ou impassibles de Konass, Grobito, Oroshipartout, Kisamerde, Itachibre, Sassoumis et Deidarabe affichaient une acceptation silencieuse et brutale.</p>
+						
+						<p class="dramatic-text">La destruction du village du Tilda n'était pas seulement une attaque stratégique ; c'était un message clair. Le règne de l'Akakatsuki commençait, et aucun allié de Konoha ne serait épargné.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 1 —</div>
+					</div>
+
+					<!-- CHAPITRE 2 -->
+					<div class="chapter-content" id="s1c2">
+						<div class="chapter-header">
+							<span class="chapter-number">第二章</span>
+							<h3>L'infiltration du village Tilda</h3>
+							<span class="chapter-kanji">潜入</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">Le ciel de l'aube se drapait de teintes violacées lorsque les silhouettes masquées de l'Akakatsuki se matérialisèrent aux abords du village caché du Tilda. L'ordre de Pain Perdu était clair : une infiltration discrète, une élimination chirurgicale d'Audric Harris, et un message de terreur à Konoha.</p>
+						
+						<p>Le plan était bien conçu. Itachibre et Konass, maîtres de la discrétion, ouvrirent la voie. Avec une précision redoutable, ils neutralisèrent les gardes silencieusement, sans laisser de traces.</p>
+						
+						<p>Mais le Tilda n'était pas un village ordinaire. Sa défense reposait sur une vigilance insoupçonnée, une extension de la volonté de son leader.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Intrus ! »
+						</blockquote>
+						
+						<p>La voix résonna, amplifiée par une onde de chakra. Des grains de sable, fins comme de la poussière mais aussi durs que de l'acier, se mirent à tourbillonner dans les ruelles. C'était la technique signature d'Audric Harris, le Hokage du Tilda.</p>
+						
+						<p>Il se tenait là, menaçant, armé non pas d'une lame, mais d'une simple <em class="important-term">poêle à crêpes</em>, dont il se servait avec une dextérité surprenante.</p>
+						
+						<p>À ses côtés se tenaient ses alliés : <strong class="character-name">Pierre</strong>, avec sa redoutable technique de la "Litière", <strong class="character-name">Valentin</strong>, maître du sable blanc, et <strong class="character-name">Paul</strong>, dont la moustache semblait armée pour le combat.</p>
+						
+						<p>"<em>Séparez-vous !</em>" ordonna Pain Perdu. "<em>Nous allons les écraser en binômes !</em>"</p>
+						
+						<p>Chaque duo prit sa direction avec une synchronisation parfaite :</p>
+						
+						<p>• Pain Perdu et Konass → Audric Harris<br>
+						• Grobito et Oroshipartout → Pierre<br>
+						• Itachibre et Sassoumis → Valentin<br>
+						• Kisamerde et Deidarabe → Paul</p>
+						
+						<p class="dramatic-text">Le plan d'infiltration avait échoué, mais la fureur de l'Akakatsuki ne faisait que commencer.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 2 —</div>
+					</div>
+
+					<!-- CHAPITRE 3 -->
+					<div class="chapter-content" id="s1c3">
+						<div class="chapter-header">
+							<span class="chapter-number">第三章</span>
+							<h3>Le Chaos du Tilda</h3>
+							<span class="chapter-kanji">混沌</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">La séparation de l'Akakatsuki plongea instantanément le village du Tilda dans le chaos. Le son des explosions de Deidarabe résonna, tandis que les cris des villageois se mêlaient aux chocs des combats.</p>
+						
+						<div class="decorative-divider">⦿</div>
+						<h4 style="text-align: center; color: #cc0000; margin: 20px 0;">Face à la poêle à crêpes</h4>
+						<p style="text-align: center; font-style: italic; margin-bottom: 15px;">Pain Perdu et Konass vs. Audric Harris</p>
+						
+						<p>Audric Harris se tenait au centre de l'affrontement, sa poêle à crêpes scintillante. Pain Perdu l'observait, ses yeux du Rinnegan analysant chaque particule de sable.</p>
+						
+						<p>"<em>Votre force est un leurre</em>," déclara Pain. "<em>Elle repose sur le sable d'un passé que nous allons anéantir.</em>"</p>
+						
+						<p>Pain Perdu tendit la main, et un champ de force invisible, le <em class="important-term">Shinra Tensei</em>, repoussa le mur de sable. Il invoqua ses six corps. L'un fonça à une vitesse supersonique, lançant des pieux de chakra noirs.</p>
+						
+						<p>Un troisième corps manœuvra derrière Audric et le frappa avec sa propre poêle, le déséquilibrant.</p>
+						
+						<p class="dramatic-text">Affaibli et dépassé, le Hokage du Tilda tomba au sol. Audric Harris fut vaincu.</p>
+						
+						<div class="decorative-divider">⦿</div>
+						<h4 style="text-align: center; color: #cc0000; margin: 20px 0;">Face à la Litière</h4>
+						<p style="text-align: center; font-style: italic; margin-bottom: 15px;">Grobito et Oroshipartout vs. Pierre</p>
+						
+						<p>Pierre transforma la rue en une fosse remplie de débris. Grobito utilisa son Kamui pour aspirer les pièges dans une autre dimension. Oroshipartout invoqua des serpents géants qui attaquèrent par-dessous.</p>
+						
+						<p class="dramatic-text">Dépassé par cette combinaison, Pierre fut rapidement neutralisé.</p>
+						
+						<div class="decorative-divider">⦿</div>
+						<h4 style="text-align: center; color: #cc0000; margin: 20px 0;">Face au Sable Blanc</h4>
+						<p style="text-align: center; font-style: italic; margin-bottom: 15px;">Itachibre et Sassoumis vs. Valentin</p>
+						
+						<p>Itachibre activa son Sharingan, déchiffrant chaque mouvement. Il utilisa son genjutsu pour piéger Valentin. Sassoumis envoya sa marionnette avec une lame empoisonnée.</p>
+						
+						<p class="dramatic-text">Pris de court, Valentin ne put se défendre. Valentin est vaincu.</p>
+						
+						<div class="decorative-divider">⦿</div>
+						<h4 style="text-align: center; color: #cc0000; margin: 20px 0;">Face à la moustache</h4>
+						<p style="text-align: center; font-style: italic; margin-bottom: 15px;">Kisamerde et Deidarabe vs. Paul</p>
+						
+						<p>Paul lança son "Jutsu des Aiguilles de Moustache". Deidarabe créa un gigantesque oiseau d'argile explosif et le propulsa vers les deux tours emblématiques du Tilda.</p>
+						
+						<p>Deux explosions titanesques déchirèrent l'horizon, réduisant les tours en poussière. Kisamerde, avec son épée Samehada, submergea Paul.</p>
+						
+						<p class="dramatic-text">Paul est vaincu.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 3 —</div>
+					</div>
+
+					<!-- CHAPITRE 4 -->
+					<div class="chapter-content" id="s1c4">
+						<div class="chapter-header">
+							<span class="chapter-number">第四章</span>
+							<h3>Le Retour du Village</h3>
+							<span class="chapter-kanji">帰還</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">Le silence qui suivit les dernières explosions de Deidarabe fut assourdissant. Le village du Tilda n'était plus qu'un champ de ruines fumantes. Les membres de l'Akakatsuki se regroupèrent, leurs missions accomplies.</p>
+						
+						<p>Alors qu'ils préparaient leur départ, une ombre inattendue s'abattit sur eux. Trois des membres, Konass, Pain Perdu et Itachibre, commencèrent à montrer des signes de faiblesse. Une fatigue inexplicable les submergea, rapidement suivie de nausées et de vertiges.</p>
+						
+						<p>"<em>Qu'est-ce que c'est que ça ?</em>" grogna Oroshipartout, son visage marqué par une inquiétude rare.</p>
+						
+						<p>"<em>Un poison ? Une technique retardée ?</em>" s'interrogea Grobito.</p>
+						
+						<p>Alors que l'ambiance devenait de plus en plus lourde, une autre mésaventure, plus... embarrassante, vint s'ajouter au tableau. Itachibre fut pris d'une violente crampe d'estomac. Dans un moment de faiblesse inattendu, il ne réussit qu'à "se chier dessus".</p>
+						
+						<p>Un silence gêné, presque comique, s'installa.</p>
+						
+						<p>"<em>Quelle... performance inattendue</em>," marmonna Deidarabe, tentant de retenir un rire nerveux.</p>
+						
+						<p class="dramatic-text">L'Akakatsuki, fraîchement victorieuse mais désormais affaiblie par une maladie mystérieuse et l'incident fâcheux d'Itachibre, se retrouva dans une situation des plus précaires.</p>
+						
+						<p>Le retour au village des G s'annonçait bien plus compliqué que prévu. La vengeance avait un prix, et parfois, ce prix était à la fois douloureux et profondément humiliant.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 4 —</div>
+					</div>
+
+					<!-- CHAPITRE 5 -->
+					<div class="chapter-content" id="s1c5">
+						<div class="chapter-header">
+							<span class="chapter-number">第五章</span>
+							<h3>Le Spectre et le Test</h3>
+							<span class="chapter-kanji">試練</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">Le repos fut bref, mais efficace. La nature éphémère de l'agent biologique avait permis aux corps robustes de se purger du mal. L'Akakatsuki était de nouveau au complet.</p>
+						
+						<p>Ils avaient rejoint leur forteresse troglodyte et étaient en pleine délibération stratégique lorsque l'improbable se produisit.</p>
+						
+						<p>La silhouette enveloppée d'un manteau sombre, le corps de l'ancien membre Kakouillezu ressuscité, se tenait à l'entrée.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Je suis désormais Kakakuzu. »
+						</blockquote>
+						
+						<p>Pain Perdu ne laissa aucune place au débat. "<em>La loyauté est tout, l'identité n'est rien. Tu es inconnu de l'Akakatsuki. Pour rejoindre nos rangs, tu devras faire tes preuves.</em>"</p>
+						
+						<p>"<em>Deidarabe, ton art contre son prétendu pouvoir. Le test commence maintenant.</em>"</p>
+						
+						<div class="decorative-divider">⦿</div>
+						<h4 style="text-align: center; color: #cc0000; margin: 20px 0;">L'Art contre l'Anti-Art</h4>
+						
+						<p>"<em>Tu n'es qu'un cadavre recousu</em>," ricana Deidarabe. "<em>Mon Art va te réduire en une poussière bien plus belle que la tienne.</em>"</p>
+						
+						<p>Deidarabe lança une douzaine de petits oiseaux d'argile explosifs, déchiquetant Kakakuzu en morceaux. Mais les morceaux ne firent que s'agiter. Des fils de chakra sombres jaillirent de chaque membre. En quelques secondes, Kakakuzu se reforma entièrement.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Mon corps est la monnaie de ma résilience. »
+						</blockquote>
+						
+						<p>Le combat continua avec fureur. Deidarabe créa une minuscule bombe de C4 qu'il lança en pleine figure de Kakakuzu. L'explosion fut localisée, visant la tête. Kakakuzu s'effondra.</p>
+						
+						<p>Pain Perdu s'avança : "<em>Son corps est un atout. Sa résilience est inégalée. Relève-toi. Le test est terminé. Tu es de nouveau des nôtres.</em>"</p>
+						
+						<p class="dramatic-text">L'Akakatsuki comptait désormais un membre de plus, un revenant dont la force promettait d'être aussi terrifiante que le prix de sa résurrection.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 5 —</div>
+					</div>
+					
+					<!-- CHAPITRE 6 -->
+					<div class="chapter-content" id="s1c6">
+						<div class="chapter-header">
+							<span class="chapter-number">第六章</span>
+							<h3>Le Retour de Caca du Balcon</h3>
+							<span class="chapter-kanji">警告</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">Les jours suivant le test de Kakakuzu furent consacrés à l'élaboration des plans du village des G. L'Akakatsuki, au complet et pleinement opérationnel, se trouvait dans sa forteresse troglodyte, l'esprit aiguisé par l'anticipation de leur vengeance.</p>
+						
+						<p>C'est alors qu'un événement inattendu vint perturber leur stratégie.</p>
+						
+						<p>Un grondement lointain, puis une série d'explosions maîtrisées, résonnèrent depuis l'entrée de la grotte. Les membres de l'Akakatsuki se préparèrent au combat. Une silhouette imposante, drapée dans un manteau de voyage usé, apparut.</p>
+						
+						<p class="dramatic-text">C'était <strong class="character-name">Caca du Balcon</strong>, l'un des trois Combattants Légendaires qui, allié à PLP, avait vaincu le Docteur Elian.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Silence, Akakatsuki. Je vous connais bien. Vous avez changé de nom, mais pas votre essence. J'ai combattu vos anciennes formes, vos anciennes identités. »
+						</blockquote>
+						
+						<p>Après avoir affirmé connaître leur passé, Caca du Balcon donna son avertissement : "<em>Je suis ici pour vous prévenir. L'attaque sur le village du Tilda n'est pas passée inaperçue. Konoha est en alerte maximale. Le Conseil des Kage prépare une riposte.</em>"</p>
+						
+						<p>Pain Perdu resta impassible. "<em>Konoha peut bien se débattre. Nous sommes l'Akakatsuki. Leur riposte ne sera qu'une confirmation de leur faiblesse.</em>"</p>
+						
+						<p>"<em>Vous sous-estimez Konoha, comme vous avez sous-estimé l'alliance de PLP et moi-même</em>," rétorqua Caca du Balcon. "<em>Ils lanceront une attaque préventive sur votre base avant même que vous n'ayez pu construire votre 'village des G'. Votre vengeance est prématurée. Vous allez vous faire écraser.</em>"</p>
+						
+						<p>Kakakuzu, nouvellement ressuscité et par nature le plus suspicieux, brisa le silence. Ses yeux s'illuminèrent derrière les fils de chakra : "<em>Pourquoi devrions-nous te faire confiance ? Tu es l'un de leurs légendes. Quel est ton jeu ?</em>"</p>
+						
+						<p>Caca du Balcon sourit faiblement, un air de folie passionnée traversant son visage. "<em>J'aime bien l'action. J'aime voir des gens bien préparés et de beaux combats. Votre plan est intéressant, mais si Konoha vous écrase avant qu'il ne commence, le spectacle n'aura aucune valeur. Je ne veux pas que mon divertissement se termine si vite.</em>"</p>
+						
+						<p class="dramatic-text">Cette réponse, dénuée de moralité mais étrangement honnête, laissa les membres de l'Akakatsuki perplexes. Il n'était pas un allié, mais un spectateur qui ne voulait pas que la pièce se termine avant le climax.</p>
+						
+						<p>La menace était claire, et l'intention de Caca du Balcon l'était tout autant : il voulait voir l'Akakatsuki survivre pour le plaisir du combat à venir. L'Akakatsuki se retrouvait face à un choix crucial : ignorer l'avertissement et maintenir leur plan, ou écouter ce spectateur exigeant et changer immédiatement leur stratégie pour éviter l'attaque imminente de Konoha.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 6 —</div>
+					</div>
+
+					<!-- CHAPITRE 7 -->
+					<div class="chapter-content" id="s1c7">
+						<div class="chapter-header">
+							<span class="chapter-number">第七章</span>
+							<h3>L'Art de la Retraite</h3>
+							<span class="chapter-kanji">撤退</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">L'avertissement de Caca du Balcon résonna dans le silence de la forteresse troglodyte. Pain Perdu fixa le légendaire combattant. Le risque de perdre ses membres, ses plans et ses ressources si tôt était trop grand. La survie était la première étape de la vengeance.</p>
+						
+						<p>"<em>Konass</em>," ordonna-t-il, sa voix redevenant calme et implacable. "<em>Active le protocole de retraite immédiate. Grobito, assure la couverture. Nous plions bagage. Nous ne nous laisserons pas écraser avant d'avoir atteint nos objectifs.</em>"</p>
+						
+						<p>L'Akakatsuki bascula instantanément en mode panique contrôlée. La grotte devint un essaim d'activité frénétique. L'honneur était oublié ; seule la survie comptait.</p>
+						
+						<p>L'efficacité macabre des membres prit le dessus sur leur fatigue. Kakakuzu, avec une rapidité surprenante, utilisa ses fils de chakra noirs pour saisir les coffres remplis des fonds amassés. Sassoumis convoqua trois grandes cages faites de bois et d'acier, les dissimulant rapidement dans son rouleau.</p>
+						
+						<p>Les trois prisonniers du Tilda — Audric, Pierre, et Valentin — y furent jetés sans ménagement. Oroshipartout sécurisa ses fioles et parchemins de recherche, les glissant dans sa manche avec une attention maniaque.</p>
+						
+						<p>Au milieu du chaos, Caca du Balcon observa le spectacle. "<em>Un peu de désordre... mais rapide. Je suis satisfait. Je me retire. Ne me remerciez pas. Je veux juste voir le deuxième acte. Ne me décevez pas.</em>" Sans un mot de plus, le légendaire combattant disparut dans l'ombre de l'entrée.</p>
+						
+						<p>Alors que les derniers préparatifs étaient faits, Itachibre prit la parole, son visage grave. "<em>Le village des G est trop loin pour notre état actuel. Nous avons besoin d'un sanctuaire, d'un lieu que Konoha ne chercherait jamais.</em>" Il regarda Pain Perdu. "<em>Nous allons à Selens, mon village d'origine, dans le nord. C'est un petit village de deux cents habitants, isolé, et l'endroit parfait pour disparaître. Il y a une ancienne protection là-bas.</em>"</p>
+						
+						<p>Pain Perdu étudia le visage d'Itachibre. Le risque de dépendre de l'ancien foyer d'un membre était grand, mais l'urgence l'emporta. "<em>Soit. Que la discrétion soit notre première arme.</em>"</p>
+						
+						<p>La tâche de la destruction incombait à Deidarabe. Malgré sa fatigue écrasante, il créa une gigantesque masse d'argile instable au centre du sol. "<em>Si je dois fuir, ce sera dans une explosion de gloire !</em>" cria-t-il avec une excitation maniaque. "<em>Ceci est mon œuvre d'Art suprême pour la fuite !</em>"</p>
+						
+						<p>Grobito utilisa son Kamui pour créer une poche dimensionnelle sécurisée pour les membres. Les derniers membres s'y engouffrèrent.</p>
+						
+						<p class="dramatic-text">L'explosion fut d'une violence inouïe. La forteresse troglodyte entière s'effondra dans un rugissement qui changea la topographie de la région.</p>
+						
+						<p>L'Akakatsuki réapparut dans une clairière lointaine, secoué et épuisé. L'objectif était désormais le nord, le petit village de Selens.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 7 —</div>
+					</div>
+
+					<!-- CHAPITRE 8 -->
+					<div class="chapter-content" id="s1c8">
+						<div class="chapter-header">
+							<span class="chapter-number">第八章</span>
+							<h3>Le Réveil du Duo Écarlate</h3>
+							<span class="chapter-kanji">紅の二人</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">L'Akakatsuki s'était installé à la hâte dans le petit village de Selens. L'atmosphère était lourde. Les membres travaillaient à trouver un moyen de déjouer la riposte imminente de Konoha. Tous, sauf Itachibre.</p>
+						
+						<p>Submergé par le besoin de retrouver ses racines, il avait pris congé pour arpenter les rues familières de son enfance. Alors qu'il se tenait près d'une fontaine asséchée, trois kunai sifflèrent. Itachibre les esquiva avec une facilité déconcertante. Son regard se porta vers la source de l'attaque, et il vit deux yeux rouges percer l'obscurité de la nuit. Le Sharingan.</p>
+						
+						<p>Sans un mot, il se lança à la poursuite du ninja inconnu, le mouvement trahissant une excitation que l'Akakatsuki n'avait plus vue en lui depuis des années. Les deux ninjas filèrent à travers le village endormi, se dirigeant vers une plaine ouverte au-delà des dernières maisons.</p>
+						
+						<p>Le ninja inconnu s'immobilisa et enleva sa capuche.</p>
+						
+						<p class="dramatic-text">C'était son frère d'armes, son alter ego ninja. Baptiste, ou comme il était connu dans les légendes ninja, <strong class="character-name">Batotsu</strong>.</p>
+						
+						<p>Un sourire éclaira le visage habituellement stoïque d'Itachibre. Ce duo avait été la quintessence de la coordination. Jadis, Itachibre et Batotsu étaient souvent employés pour les missions les plus sales et violentes — assassinats, éliminations de clans dissidents. Leur nom seul suffisait à faire fuir les armées, tant leurs Sharingan respectifs, fonctionnant en parfaite synchronisation, étaient craints.</p>
+						
+						<p>"<em>Batotsu</em>," murmura Itachibre, l'émotion débordant.</p>
+						
+						<p>"<em>Tu as de nouvelles couleurs, Itachibre</em>," répondit Batotsu, un mélange de tristesse et de joie dans sa voix. "<em>Deux longues années sans signe. Je te croyais perdu dans l'obscurité.</em>"</p>
+						
+						<p>Ce fut un moment de retrouvailles intenses, l'amitié ancienne effaçant les nouvelles allégeances.</p>
+						
+						<p>"<em>Rejoins-nous</em>," proposa Itachibre, la chaleur de l'offre sincère. "<em>L'Akakatsuki a besoin de ta force. Nous allons changer ce monde.</em>"</p>
+						
+						<p>Batotsu regarda Itachibre, puis le village de Selens, son regard s'attardant sur le blason au loin.</p>
+						
+						<p>"<em>Non</em>," répondit Batotsu. "<em>Mon chemin n'est plus la guerre, ni la vengeance. J'ai mes propres serments envers Selens. Je ne rejoindrai pas l'Akakatsuki, mais je ne vous trahirai pas.</em>" Il fit une pause, puis ajouta d'un ton plus sombre et complice : "<em>Considérez que je suis à votre disposition. Si vous avez besoin d'un 'coup de main' — une mission précise, une élimination discrète... L'ancien duo peut toujours opérer, pour un temps, tant que Selens n'est pas menacé.</em>"</p>
+						
+						<p class="dramatic-text">Mais Batotsu avait déjà une idée plus vaste en tête que de simples missions. Voyant le danger qui pesait sur son frère d'armes et sur son village, il savait qu'une aide ponctuelle ne suffirait pas. Il ramena Itachibre au quartier général, prêt à proposer à Pain Perdu un marché bien plus risqué et ambitieux.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 8 —</div>
+					</div>
+
+					<!-- CHAPITRE 9 -->
+					<div class="chapter-content" id="s1c9">
+						<div class="chapter-header">
+							<span class="chapter-number">第九章</span>
+							<h3>L'Alliance Inattendue</h3>
+							<span class="chapter-kanji">同盟</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">L'Akakatsuki, après avoir trouvé refuge à Selens, se retrouve face à un dilemme stratégique. Le village, bien que petit, possède des ressources précieuses et des informations cruciales sur Konoha. Batotsu, l'ancien partenaire d'Itachibre, joue un rôle clé dans cette nouvelle dynamique.</p>
+						
+						<p>Pain Perdu, assis dans la pénombre de leur cachette, réfléchissait aux récents événements. L'attaque sur le Tilda avait été un succès, mais les conséquences avaient été plus lourdes qu'ils ne l'auraient cru. La maladie, l'humiliation, et maintenant, la nécessité de trouver de nouvelles alliances. C'est alors que Batotsu entra dans la pièce, son expression impénétrable.</p>
+						
+						<p>"<em>Pain Perdu</em>," commença Batotsu, "<em>je sais que vous avez un objectif commun avec Selens. Nous voulons tous voir Konoha affaiblie. Pourquoi ne pas unir nos forces pour atteindre ce but ?</em>"</p>
+						
+						<p>Pain Perdu leva un sourcil, intrigué. "<em>Et que proposez-vous exactement, Batotsu ?</em>"</p>
+						
+						<p>Batotsu s'assit en face de lui, son regard perçant ne quittant jamais celui de Pain Perdu. "<em>Selens dispose de plusieurs 'petites frappes' infiltrées au sein de Konoha. Ces agents discrets, faisant partie intégrante du pays du feu, peuvent fournir des informations précieuses et saboter les opérations de l'intérieur. Avec leur aide, nous pourrions affaiblir Konoha de l'intérieur sans qu'ils s'en rendent compte. Konoha ne soupçonnera jamais les ninjas de Selens, car nous sommes tous citoyens du même pays.</em>"</p>
+						
+						<p>Pain Perdu se tourna vers les autres membres de l'Akakatsuki, qui écoutaient attentivement. "<em>Qu'en pensez-vous ? Une alliance avec Selens pourrait nous offrir un avantage stratégique considérable. Nous pourrions enfin réaliser notre vengeance contre Konoha.</em>"</p>
+						
+						<p>Itachibre, toujours prudent, posa une question cruciale. "<em>Et en quoi pouvons-nous faire confiance à Selens ? Comment savoir qu'ils ne nous trahiront pas une fois Konoha affaiblie ?</em>"</p>
+						
+						<p>Batotsu, anticipant cette question, répondit avec assurance. "<em>Selens a une longue histoire de conflits avec Konoha. Nous avons des raisons personnelles de vouloir leur chute. De plus, notre alliance sera scellée par un serment de sang, une tradition ancienne et sacrée dans notre village. Trahir ce serment signifierait la malédiction éternelle pour celui qui ose le briser.</em>"</p>
+						
+						<p>Après une discussion intense, l'Akakatsuki décida d'accepter la proposition de Batotsu. Pain Perdu, en tant que leader, scella l'alliance avec un serment de sang. Les membres de l'Akakatsuki se préparèrent alors à intégrer les agents de Selens dans leurs opérations, marquant le début d'une nouvelle phase dans leur quête de vengeance.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Que cette alliance soit le début de la fin pour Konoha. Avec Selens à nos côtés, rien ne pourra nous arrêter. »
+						</blockquote>
+						
+						<p>L'atmosphère dans la pièce était lourde de significations. L'Akakatsuki venait de prendre un risque calculé, mais un risque néanmoins. Selens, avec ses agents discrets, pourrait bien être la clé de leur succès. Cependant, la confiance était un luxe rare dans leur monde, et seuls le temps et les actions de leurs nouveaux alliés le diraient.</p>
+						
+						<p>Batotsu, en quittant la réunion, ne put s'empêcher de penser à Itachibre. Leur rencontre avait ravivé des souvenirs et des émotions qu'il croyait enfouis. Il savait que cette alliance était risquée, mais il était prêt à tout pour protéger Selens et son ancien frère d'armes.</p>
+						
+						<p class="dramatic-text">Alors que les membres de l'Akakatsuki se dispersaient, deux ombres se détachèrent de l'obscurité, observant attentivement l'entrée de leur quartier général. Une silhouette encapuchonnée, dont le visage était masqué par l'ombre, murmura quelque chose à son compagnon, un homme au regard perçant et au sourire énigmatique. Leur présence passa inaperçue, mais leur arrivée promettait des changements imprévisibles et potentiellement dangereux pour l'Akakatsuki.</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 9 —</div>
+					</div>
+
+					<!-- CHAPITRE 10 -->
+					<div class="chapter-content" id="s1c10">
+						<div class="chapter-header">
+							<span class="chapter-number">第十章</span>
+							<h3>Les Anciens Alliés</h3>
+							<span class="chapter-kanji">古き仲間</span>
+						</div>
+						<div class="decorative-divider">⧈ ☙</div>
+						
+						<p class="first-paragraph">L'encre du serment de sang, scellant l'Alliance de la Rose et du Nuage, était à peine sèche que la tension montait dans le quartier général de Selens. Les membres de l'Akakatsuki, entourés de Batotsu et des agents du village, établissaient les premières stratégies de défense lorsque l'alerte se déclencha.</p>
+						
+						<p>Non pas pour l'équipe de Konoha, mais pour une perturbation plus proche, plus... familière.</p>
+						
+						<p>Un rire guttural et sinistre brisa le silence.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Tiens, tiens. On dirait que la bande est au complet... enfin, presque. »
+						</blockquote>
+						
+						<p>Pain Perdu se tourna, son regard de Rinnegan se plissant. Les autres se mirent instantanément sur leurs gardes.</p>
+						
+						<p>Deux silhouettes avancèrent dans la lumière vacillante du feu de cheminée. Le premier était un homme dont le corps semblait composé de deux moitiés distinctes, l'une blanche et l'autre noire, avec une bouche géante sur l'épaule. C'était <strong class="character-name">Zezettesu</strong>, l'espion et l'observateur.</p>
+						
+						<p>Le second était un homme aux cheveux argentés, portant son emblème de Jashin avec fierté, tenant une faux à trois lames. C'était <strong class="character-name">Hidanus</strong>, l'immortel.</p>
+						
+						<p>"<em>Zezettesu... Hidanus...</em>" murmura Kisamerde, son expression trahissant un mélange de surprise et de soulagement.</p>
+						
+						<p>"<em>On dirait que vous vous êtes bien amusés sans nous</em>," ricana Hidanus, son rire sinistre résonnant. "<em>Mais le vrai plaisir est de retour. On est là pour la fête.</em>"</p>
+						
+						<p>Zezettesu, plus mesuré, s'adressa directement à Pain Perdu. "<em>Nous avons suivi vos traces. L'organisation est en mouvement. Nous sommes ici pour reprendre nos places. L'Akakatsuki a besoin de sa puissance totale pour ce qui s'annonce.</em>"</p>
+						
+						<p class="dramatic-text">Le retour de ces deux membres emblématiques était un événement sismique. Batotsu, témoin de la scène, observa Pain Perdu, évaluant la capacité du leader à intégrer ces forces brutes et imprévisibles tout en respectant les engagements pris envers Selens.</p>
+						
+						<p>Pain Perdu regarda les deux nouveaux arrivants, puis ses membres, avant de s'arrêter sur Batotsu.</p>
+						
+						<blockquote class="dramatic-quote">
+							« Bien. Vos retours sont bienvenus. Mais les règles ont changé. L'Akakatsuki a de nouveaux alliés. Hidanus, Zezettesu, il y aura de la gloire et du sacrifice à venir. Mais d'abord, nous avons un problème plus pressant : une équipe de Konoha s'approche de Selens. Nous les attendons. »
+						</blockquote>
+						
+						<p class="dramatic-text">Le renforcement de l'Akakatsuki était complet. L'heure de la défense, en collaboration avec l'Alliance de la Rose et du Nuage, était sur le point de sonner.</p>
+						
+						<div class="decorative-divider">⦿</div>
+						
+						<p style="text-align: center; font-style: italic; margin-top: 30px; color: #888;">La confrontation approche... À suivre dans la Saison II</p>
+						
+						<div class="chapter-end">— Fin du Chapitre 10 —</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<div class="button-container" id="homeBtn">
+		<button onclick="window.location.href='../../index.html';" class="button">
+			Accueil de l'Intranet
+		</button>
+	</div>
+
+	<footer>
+		<div class="footer-content">
+			<p class="copyright">
+				&copy; 2025 Akakatsuki Intranet<br>
+				"Le monde connaîtra la douleur"
+			</p>
+		</div>
+	</footer>
+</div>
+
+<script src="../js/histoire.js"></script>
+
+<script src="../js/style.js" defer></script>
+</body>
+</html>
