@@ -13,7 +13,7 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
 .slideshow-container {
     position: relative;
     max-width: 380px;
-    min-height: 600px;
+    min-height: 300px;
     margin: 40px auto;
     padding: 60px 0;
     z-index: 1;
