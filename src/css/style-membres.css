@@ -12,16 +12,13 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
 ======================================== */
 .slideshow-container {
     position: relative;
-    max-width: 380px;
-    min-height: 300px;
+    max-width: 300px;   /* taille réduite à la bonne échelle */
+    min-height: 500px;  /* hauteur adaptée pour WANTED */
     margin: 40px auto;
-    padding: 60px 0;
-    z-index: 1;
+    padding: 50px 0;
+    z-index: 1; /* derrière les boutons */
 }
 
-/* ========================================
-   CARTE WANTED – BASE
-======================================== */
 /* ========================================
    CARTE WANTED – BASE
 ======================================== */
@@ -31,8 +28,8 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
     left: 50%;
     transform: translateX(-50%) rotate(-1deg);
     width: 100%;
-    max-width: 350px; /* réduit pour ne pas recouvrir les boutons */
-    padding: 1.4rem 1.6rem 1.8rem;
+    max-width: 280px; /* réduit pour ressembler à un vrai poster */
+    padding: 1.2rem 1.4rem 1.6rem;
     text-align: center;
     color: #2a1608;
 
@@ -43,10 +40,10 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
         repeating-linear-gradient(90deg, rgba(120,80,40,.02), rgba(120,80,40,.02) 1px, transparent 1px, transparent 4px),
         linear-gradient(135deg, #f2e4c4 0%, #e3cfa4 55%, #d2b889 100%);
 
-    border: 10px solid #6b4523;
+    border: 8px solid #6b4523;
     border-radius: 2px;
 
-    box-shadow: 0 16px 35px rgba(0,0,0,.4), inset 0 0 80px rgba(120,80,40,.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35), inset 0 0 60px rgba(120,80,40,.15);
 
     opacity: 0;
     pointer-events: none;
@@ -198,8 +195,8 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
     background: linear-gradient(135deg, rgba(244,67,54,.25), rgba(0,0,0,.85));
     color: #fff;
     border: 2px solid #f44336;
-    padding: .8rem 1.5rem;
-    font-size: 1.3rem;
+    padding: .7rem 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
@@ -228,21 +225,18 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
    RESPONSIVE
 ======================================== */
 @media (max-width: 768px) {
+    .slideshow-container {
+        max-width: 220px;
+        min-height: 400px;
+    }
+
     .member {
-        transform: translateX(-50%) rotate(-0.8deg);
+        max-width: 200px;
+        padding: 1rem 1.2rem 1.4rem;
     }
-    .wanted-title {
-        font-size: 2.8rem;
-        letter-spacing: 8px;
-    }
-    .member-name {
-        font-size: 2rem;
-    }
-    .member-bounty {
-        font-size: 2rem;
-    }
+
     .nav-btn {
         padding: .6rem 1.2rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
