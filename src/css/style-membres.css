@@ -12,12 +12,16 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
 ======================================== */
 .slideshow-container {
     position: relative;
-    max-width: 420px;
-    min-height: 650px;
+    max-width: 380px;
+    min-height: 600px;
     margin: 40px auto;
-    padding: 60px;
+    padding: 60px 0;
+    z-index: 1;
 }
 
+/* ========================================
+   CARTE WANTED – BASE
+======================================== */
 /* ========================================
    CARTE WANTED – BASE
 ======================================== */
@@ -25,51 +29,34 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%) rotate(-1.2deg);
+    transform: translateX(-50%) rotate(-1deg);
     width: 100%;
-    max-width: 380px;
-    padding: 1.6rem 1.8rem 2rem;
+    max-width: 350px; /* réduit pour ne pas recouvrir les boutons */
+    padding: 1.4rem 1.6rem 1.8rem;
     text-align: center;
     color: #2a1608;
 
     background:
-        /* Taches */
         radial-gradient(circle at 20% 25%, rgba(120,80,40,.12), transparent 35%),
         radial-gradient(circle at 75% 70%, rgba(120,80,40,.1), transparent 40%),
-        /* Fibres papier */
-        repeating-linear-gradient(
-            0deg,
-            rgba(120,80,40,.018),
-            rgba(120,80,40,.018) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(120,80,40,.02),
-            rgba(120,80,40,.02) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        /* Fond parchemin clair */
+        repeating-linear-gradient(0deg, rgba(120,80,40,.018), rgba(120,80,40,.018) 1px, transparent 1px, transparent 4px),
+        repeating-linear-gradient(90deg, rgba(120,80,40,.02), rgba(120,80,40,.02) 1px, transparent 1px, transparent 4px),
         linear-gradient(135deg, #f2e4c4 0%, #e3cfa4 55%, #d2b889 100%);
 
-    border: 12px solid #6b4523;
+    border: 10px solid #6b4523;
     border-radius: 2px;
 
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.45),
-        inset 0 0 90px rgba(120,80,40,.18);
+    box-shadow: 0 16px 35px rgba(0,0,0,.4), inset 0 0 80px rgba(120,80,40,.15);
 
     opacity: 0;
     pointer-events: none;
-    transition: opacity .6s ease;
+    transition: opacity .5s ease;
+    z-index: 2; /* derrière les boutons */
 }
 
 .member.active {
     opacity: 1;
     pointer-events: auto;
-    z-index: 10;
 }
 
 /* ========================================
@@ -203,6 +190,8 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
     gap: 1.5rem;
     margin-top: 25px;
     padding: 1rem;
+    position: relative;
+    z-index: 5; /* boutons devant l’affiche */
 }
 
 .nav-btn {
@@ -232,6 +221,7 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
     text-shadow: 0 0 8px rgba(255,215,0,.5);
     min-width: 60px;
     text-align: center;
+    z-index: 5;
 }
 
 /* ========================================
