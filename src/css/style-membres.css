@@ -1,4 +1,13 @@
 /* ========================================
+   POLICES ONE PIECE / WESTERN
+======================================== */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Playfair+Display+SC:wght@700;900&display=swap');
+
+body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .akakatsuki-text {
+    font-family: 'IM Fell English SC', serif;
+}
+
+/* ========================================
    SLIDESHOW CONTAINER
 ======================================== */
 .slideshow-container {
