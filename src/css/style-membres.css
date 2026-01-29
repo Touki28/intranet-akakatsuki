@@ -1,0 +1,255 @@
+/* ========================================
+   POLICES ONE PIECE / WESTERN
+======================================== */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Playfair+Display+SC:wght@700;900&display=swap');
+
+body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .akakatsuki-text {
+    font-family: 'IM Fell English SC', serif;
+}
+
+/* ========================================
+   SLIDESHOW CONTAINER
+======================================== */
+.slideshow-container {
+    position: relative;
+    max-width: 240px;   /* réduit pour que les boutons ne chevauchent pas */
+    min-height: 420px;
+    margin: 40px auto;
+    padding: 30px 0;
+    z-index: 1;
+}
+
+/* ========================================
+   CARTE WANTED – BASE
+======================================== */
+.member {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 100%;
+    max-width: 220px;
+    padding: 1rem 1.2rem 1.4rem;
+    text-align: center;
+    color: #2a1608;
+    background:
+        radial-gradient(circle at 20% 25%, rgba(120,80,40,.12), transparent 35%),
+        radial-gradient(circle at 75% 70%, rgba(120,80,40,.1), transparent 40%),
+        repeating-linear-gradient(0deg, rgba(120,80,40,.018), rgba(120,80,40,.018) 1px, transparent 1px, transparent 4px),
+        repeating-linear-gradient(90deg, rgba(120,80,40,.02), rgba(120,80,40,.02) 1px, transparent 1px, transparent 4px),
+        linear-gradient(135deg, #f2e4c4 0%, #e3cfa4 55%, #d2b889 100%);
+    border: 6px solid #6b4523;
+    border-radius: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.3), inset 0 0 50px rgba(120,80,40,.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s ease;
+    z-index: 2;
+}
+
+.member.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ========================================
+   BORDS DÉCHIRÉS / USÉS
+======================================== */
+.member::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    background:
+        radial-gradient(circle at 8% 12%, transparent 7px, rgba(0,0,0,.25) 8px),
+        radial-gradient(circle at 92% 18%, transparent 6px, rgba(0,0,0,.22) 7px),
+        radial-gradient(circle at 18% 92%, transparent 6px, rgba(0,0,0,.25) 7px),
+        radial-gradient(circle at 85% 88%, transparent 7px, rgba(0,0,0,.22) 8px);
+    pointer-events: none;
+}
+
+/* ========================================
+   TITRE WANTED
+======================================== */
+.wanted-title {
+    font-size: 2.8rem;
+    letter-spacing: 10px;
+    color: #3a1f0c;
+    margin-bottom: .9rem;
+    text-shadow: 2px 2px 0 #b98a52;
+    transform: scaleX(1.15);
+}
+
+/* ========================================
+   IMAGE DU MEMBRE
+======================================== */
+.member-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border: 5px solid #1a0a00;
+    background: #000;
+    box-shadow: 0 6px 15px rgba(0,0,0,.5), inset 0 0 20px rgba(0,0,0,.3);
+    margin-bottom: 1rem;
+    filter: sepia(.15) contrast(1.1);
+}
+
+/* ========================================
+   DEAD OR ALIVE – TAMPON
+======================================== */
+.dead-or-alive {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    padding: .3rem 1rem;
+    margin: .6rem 0 1rem;
+    border: 3px double #3a1f0c;
+    background: rgba(120,80,40,.08);
+    transform: rotate(-2deg);
+    text-shadow: 1px 1px 0 rgba(120,80,40,.3);
+}
+
+/* ========================================
+   NOM DU MEMBRE
+======================================== */
+.member-name {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: .9rem;
+    text-shadow: 2px 2px 0 #8a5a2b;
+}
+
+/* ========================================
+   PRIME / RECOMPENSE
+======================================== */
+.member-bounty {
+    position: relative;
+    margin: 1rem 0;
+    padding: .7rem 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #3a1f0c;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(120,80,40,.05),
+            rgba(120,80,40,.05) 2px,
+            transparent 2px,
+            transparent 5px
+        ),
+        linear-gradient(135deg, #ead8b2 0%, #d9c08e 100%);
+    border-top: 3px solid #1a0a00;
+    border-bottom: 3px solid #1a0a00;
+    border-left: 2px dashed rgba(26,10,0,.4);
+    border-right: 2px dashed rgba(26,10,0,.4);
+    box-shadow: inset 0 3px 8px rgba(120,80,40,.4), 0 4px 8px rgba(0,0,0,.35);
+    transform: rotate(-1.5deg);
+    text-shadow: 2px 2px 0 #8a5a2b;
+}
+
+/* ========================================
+   AKATSUKI / SIGNATURE BAS
+======================================== */
+.akakatsuki-text {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    border-top: 2px solid #3a1f0c;
+    padding-top: .5rem;
+    text-shadow: 1px 1px 0 rgba(120,80,40,.4);
+    color: #3a1f0c;
+}
+
+/* ========================================
+   BOUTONS DE NAVIGATION
+======================================== */
+.nav-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 20px;
+    padding: .8rem;
+    position: relative;
+    z-index: 5;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, rgba(244,67,54,.25), rgba(0,0,0,.85));
+    color: #fff;
+    border: 2px solid #f44336;
+    padding: .6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 4px 12px rgba(244,67,54,.4);
+}
+
+.nav-btn:hover {
+    background: linear-gradient(135deg, rgba(244,67,54,.5), rgba(120,0,0,.9));
+    color: #ffd700;
+    border-color: #ffd700;
+    transform: translateY(-2px) scale(1.05);
+}
+
+.counter {
+    color: #ffd700;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255,215,0,.5);
+    min-width: 60px;
+    text-align: center;
+    z-index: 5;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 768px) {
+    .slideshow-container {
+        max-width: 180px;
+        min-height: 360px;
+    }
+
+    .member {
+        max-width: 160px;
+        padding: .8rem 1rem 1rem;
+    }
+
+    .member-image {
+        height: 180px;
+    }
+
+    .wanted-title {
+        font-size: 2rem;
+    }
+
+    .dead-or-alive {
+        font-size: 1.5rem;
+        padding: .25rem .8rem;
+    }
+
+    .member-name {
+        font-size: 1.6rem;
+    }
+
+    .member-bounty {
+        font-size: 1.6rem;
+        padding: .5rem .8rem;
+    }
+
+    .akakatsuki-text {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn {
+        padding: .5rem 1rem;
+        font-size: .9rem;
+    }
+}
