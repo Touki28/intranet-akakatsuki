@@ -11,12 +11,20 @@ body, .member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .aka
    SLIDESHOW CONTAINER
 ======================================== */
 .slideshow-container {
-    position: relative;
-    max-width: 240px;   /* réduit pour que les boutons ne chevauchent pas */
-    min-height: 420px;
-    margin: 40px auto;
-    padding: 30px 0;
-    z-index: 1;
+  position: relative;
+  width: fit-content;
+}
+
+#Avis_de_recherche {
+  display: block;
+}
+
+#pdp {
+  position: absolute;
+  top: 80px;      /* ajuste */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;   /* ajuste */
 }
 
 /* ========================================
