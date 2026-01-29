@@ -36,6 +36,10 @@
 		</section>
 
 		<div class="nav-controls">
+			<div class="prime">
+				<img src="../img/avis_de_recherche.jpg" class="Avis_de_recherche">
+				<img src="../img/Deidara.jpg" class="pdp">
+			</div>
 			<button class="nav-btn" id="prevBtn">◄</button>
 			<span class="counter" id="counter">1 / 11</span>
 			<button class="nav-btn" id="nextBtn">►</button>
@@ -263,29 +267,6 @@ const membersData = [
 // Variables globales
 let currentIndex = 0;
 let autoPlayInterval;
-
-// Générer les cartes wanted style
-function generateMemberCards() {
-	const teamSection = document.getElementById('slideshow');
-	
-	membersData.forEach((member, index) => {
-		const memberCard = document.createElement('article');
-		memberCard.className = 'member';
-		if (index === 0) memberCard.classList.add('active');
-		memberCard.onclick = () => openModal(index);
-		
-		memberCard.innerHTML = `
-			<h1 class="wanted-title">WANTED</h1>
-			<img class="member-image" src="${member.image}" alt="${member.name}">
-			<p class="dead-or-alive">DEAD OR ALIVE</p>
-			<h2 class="member-name">${member.name}</h2>
-			<div class="member-bounty">💩 ${member.bounty.toLocaleString()} 💩</div>
-			<p class="akakatsuki-text">AKAKATSUKI</p>
-		`;
-		
-		teamSection.appendChild(memberCard);
-	});
-}
 
 // Afficher un membre spécifique
 function showMember(index) {
