@@ -2,6 +2,7 @@
 const membersData = [
 	{
 		name: "Pain Perdu",
+		pseudo: "Pain Perdu",
 		realName: "Leheurteur Maxence",
 		image: "../img/pdp/membres/Pain.jpg",
 		bounty: 850000,
@@ -15,6 +16,7 @@ const membersData = [
 	},
 	{
 		name: "Konass",
+		pseudo: "Konass",
 		realName: "Lepiller Floriane",
 		image: "../img/pdp/membres/Konan.jpg",
 		bounty: 650000,
@@ -28,6 +30,7 @@ const membersData = [
 	},
 	{
 		name: "Itachibre Uchiha",
+		pseudo: "Itachibre",
 		realName: "Cantoni Bastien",
 		image: "../img/pdp/membres/Itachi.jpg",
 		bounty: 920000,
@@ -62,6 +65,7 @@ const membersData = [
 	},
 	{
 		name: "Kisamerde Hoshigaki",
+		pseudo: "Kisamerde",
 		realName: "Girard-Fourneaux Liam",
 		image: "../img/pdp/membres/Kisame.jpg",
 		bounty: 780000,
@@ -75,6 +79,7 @@ const membersData = [
 	},
 	{
 		name: "Deidarabe",
+		pseudo: "Deidarabe",
 		realName: "Leroy Valentin",
 		image: "../img/pdp/membres/Deidara.jpg",
 		bounty: 690000,
@@ -88,6 +93,7 @@ const membersData = [
 	},
 	{
 		name: "Sassoumi",
+		pseudo: "Sassoumi",
 		realName: "Hazet Alex",
 		image: "../img/pdp/membres/Sasori.jpg",
 		bounty: 720000,
@@ -101,6 +107,7 @@ const membersData = [
 	},
 	{
 		name: "Orochipartout",
+		pseudo: "Orochipartout",
 		realName: "Morvan Quentin",
 		image: "../img/pdp/membres/Orochimaru.jpg",
 		bounty: 810000,
@@ -114,6 +121,7 @@ const membersData = [
 	},
 	{
 		name: "Grobito Uchiha (Tobi)",
+		pseudo: "Grobito",
 		realName: "Elmaknasi Lucas",
 		image: "../img/pdp/membres/Obito.jpg",
 		bounty: 880000,
@@ -127,6 +135,7 @@ const membersData = [
 	},
 	{
 		name: "Kakakuzu",
+		pseudo: "Kakakuzu",
 		realName: "Dumont Enzo",
 		image: "../img/pdp/membres/Kakuzu.jpg",
 		bounty: 760000,
@@ -140,6 +149,7 @@ const membersData = [
 	},
 	{
 		name: "Hidanus",
+		pseudo: "Hidanus",
 		realName: "Lucas Alexandre",
 		image: "../img/pdp/membres/Hidan.jpg",
 		bounty: 670000,
@@ -153,6 +163,7 @@ const membersData = [
 	},
 	{
 		name: "Zezettesou",
+		pseudo: "Zezettesou",
 		realName: "Foyer Emilien",
 		image: "../img/pdp/membres/Zetsu.jpg",
 		bounty: 740000,
@@ -182,7 +193,7 @@ function showMember(index) {
 
 	pdpImg.src        = membersData[index].image;
 	pdpImg.alt        = membersData[index].name;
-	nom.textContent   = membersData[index].name;
+	nom.textContent   = membersData[index].pseudo;
 	prime.textContent = membersData[index].bounty;
 
 	counter.textContent = `${index + 1} / ${membersData.length}`;
