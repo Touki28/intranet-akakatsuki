@@ -31,9 +31,9 @@
 	</header>
 
 	<main>
-		<section class="slideshow-container" id="slideshow">
-			<img src="../img/avis_de_recherche.jpg" id="Avis_de_recherche">
-			<img src="../img/Deidara.jpg" id="pdp">
+		<section class="primes" id="prime">
+			<img src="../img/avis_de_recherche.png" id="Avis_de_recherche">
+			<img src="" id="pdp">
 		</section>
 
 		<div class="nav-controls">
@@ -60,7 +60,7 @@
 </div>
 
 <!-- Modal pour les détails -->
-<div id="memberModal" class="member-modal">
+<!-- <div id="memberModal" class="member-modal">
 	<div class="member-modal-content">
 		<span class="modal-close">&times;</span>
 		<div class="modal-header">
@@ -90,7 +90,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <script>
 // Données des membres avec primes stockées
@@ -98,7 +98,7 @@ const membersData = [
 	{
 		name: "Pain Perdu",
 		realName: "Leheurteur Maxence",
-		image: "../img/Pain.jpg",
+		image: "../img/pdp/membres/Pain.jpg",
 		bounty: 850000,
 		techniques: "Rinnegan, cheveux roux",
 		palmares: [
@@ -111,7 +111,7 @@ const membersData = [
 	{
 		name: "Konass",
 		realName: "Lepiller Floriane",
-		image: "../img/Konan.jpg",
+		image: "../img/pdp/membres/Konan.jpg",
 		bounty: 650000,
 		techniques: "Manipulation de papier, catcheuse",
 		palmares: [
@@ -124,7 +124,7 @@ const membersData = [
 	{
 		name: "Itachibre Uchiha",
 		realName: "Cantoni Bastien",
-		image: "../img/Itachi.jpg",
+		image: "../img/pdp/membres/Itachi.jpg",
 		bounty: 920000,
 		techniques: "Mangekyō Sharingan, féminisme, taper frais, dyslexique",
 		palmares: [
@@ -158,7 +158,7 @@ const membersData = [
 	{
 		name: "Kisamerde Hoshigaki",
 		realName: "Girard-Fourneaux Liam",
-		image: "../img/Kisame.jpg",
+		image: "../img/pdp/membres/Kisame.jpg",
 		bounty: 780000,
 		techniques: "Affinités Suiton, épée Samehada, Super Gaulois",
 		palmares: [
@@ -171,7 +171,7 @@ const membersData = [
 	{
 		name: "Deidarabe",
 		realName: "Leroy Valentin",
-		image: "../img/Deidara.jpg",
+		image: "../img/pdp/membres/Deidara.jpg",
 		bounty: 690000,
 		techniques: "Argile explosive (Katsu), tricheur, fait du beatbox",
 		palmares: [
@@ -184,7 +184,7 @@ const membersData = [
 	{
 		name: "Sassoumi",
 		realName: "Hazet Alex",
-		image: "../img/Sasori.jpg",
+		image: "../img/pdp/membres/Sasori.jpg",
 		bounty: 720000,
 		techniques: "Marionnettiste maître, escalade, peut monter à 100%",
 		palmares: [
@@ -197,7 +197,7 @@ const membersData = [
 	{
 		name: "Orochipartout",
 		realName: "Morvan Quentin",
-		image: "../img/Orochimaru.jpg",
+		image: "../img/pdp/membres/Orochimaru.jpg",
 		bounty: 810000,
 		techniques: "Immortalité, technique de la réincarnation, invocation de Neymar Junior, bon au foot",
 		palmares: [
@@ -210,7 +210,7 @@ const membersData = [
 	{
 		name: "Grobito Uchiha (Tobi)",
 		realName: "Elmaknasi Lucas",
-		image: "../img/Obito.jpg",
+		image: "../img/pdp/membres/Obito.jpg",
 		bounty: 880000,
 		techniques: "Mangekyō Sharingan (Kamui), Rinnegan, maître des larves",
 		palmares: [
@@ -223,7 +223,7 @@ const membersData = [
 	{
 		name: "Kakakuzu",
 		realName: "Dumont Enzo",
-		image: "../img/Kakuzu.jpg",
+		image: "../img/pdp/membres/Kakuzu.jpg",
 		bounty: 760000,
 		techniques: "Jiongu (filaments noirs), maîtrise des cinq éléments, alcoolisme",
 		palmares: [
@@ -236,7 +236,7 @@ const membersData = [
 	{
 		name: "Hidanus",
 		realName: "Lucas Alexandre",
-		image: "../img/Hidan.jpg",
+		image: "../img/pdp/membres/Hidan.jpg",
 		bounty: 670000,
 		techniques: "Immortel, dieu Jashin",
 		palmares: [
@@ -249,7 +249,7 @@ const membersData = [
 	{
 		name: "Zezettesou",
 		realName: "Foyer Emilien",
-		image: "../img/Zetsu.jpg",
+		image: "../img/pdp/membres/Zetsu.jpg",
 		bounty: 740000,
 		techniques: "Mokuton, maître de l'IA, inspiration infinie, recréer la réalité grâce à ses créations",
 		palmares: [
@@ -265,30 +265,30 @@ const membersData = [
 let currentIndex = 0;
 let autoPlayInterval;
 
+// Sélecteurs
+const pdpImg = document.getElementById('pdp');
+const counter = document.getElementById('counter');
+
 // Afficher un membre spécifique
 function showMember(index) {
-	const members = document.querySelectorAll('.member');
-	
-	members.forEach(m => m.classList.remove('active'));
-	members[index].classList.add('active');
-	
-	document.getElementById('counter').textContent = `${index + 1} / ${membersData.length}`;
-	
 	currentIndex = index;
+
+	pdpImg.src = membersData[index].image;
+	pdpImg.alt = membersData[index].name;
+
+	counter.textContent = `${index + 1} / ${membersData.length}`;
 }
 
 // Navigation
 function nextMember() {
-	currentIndex = (currentIndex + 1) % membersData.length;
-	showMember(currentIndex);
+	showMember((currentIndex + 1) % membersData.length);
 }
 
 function prevMember() {
-	currentIndex = (currentIndex - 1 + membersData.length) % membersData.length;
-	showMember(currentIndex);
+	showMember((currentIndex - 1 + membersData.length) % membersData.length);
 }
 
-// Démarrer le diaporama automatique (10 secondes)
+// Autoplay
 function startAutoPlay() {
 	autoPlayInterval = setInterval(nextMember, 10000);
 }
@@ -303,19 +303,20 @@ function resetAutoPlay() {
 }
 
 // Ouvrir la modal avec détails
+document.getElementById('prime').addEventListener('click', () => {
+    openModal(currentIndex);
+});
+
 function openModal(index) {
-	stopAutoPlay();
-	
-	const member = membersData[index];
+	const member = membersData[currentIndex];
 	const modal = document.getElementById('memberModal');
-	
+
 	document.getElementById('modalName').textContent = member.name;
 	document.getElementById('modalImage').src = member.image;
 	document.getElementById('modalImage').alt = member.name;
 	document.getElementById('modalRealName').textContent = member.realName;
 	document.getElementById('modalTechniques').textContent = member.techniques;
-	
-	// Remplir le palmarès
+
 	const palmaresList = document.getElementById('modalPalmares');
 	palmaresList.innerHTML = '';
 	member.palmares.forEach(item => {
@@ -323,17 +324,13 @@ function openModal(index) {
 		li.textContent = item;
 		palmaresList.appendChild(li);
 	});
-	
-	// Remplir le lore
+
 	const loreDiv = document.getElementById('modalLore');
-	if (member.lore) {
-		loreDiv.innerHTML = member.lore;
-	} else {
-		loreDiv.innerHTML = '<p>Histoire à venir...</p>';
-	}
-	
+	loreDiv.innerHTML = member.lore || '<p>Histoire à venir...</p>';
+
 	modal.style.display = 'block';
 	document.body.style.overflow = 'hidden';
+	stopAutoPlay();
 }
 
 // Fermer la modal
@@ -346,41 +343,31 @@ function closeModal() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-	generateMemberCards();
+	showMember(0);
 	startAutoPlay();
-	
-	// Boutons de navigation
+
 	document.getElementById('prevBtn').addEventListener('click', () => {
 		prevMember();
 		resetAutoPlay();
 	});
-	
+
 	document.getElementById('nextBtn').addEventListener('click', () => {
 		nextMember();
 		resetAutoPlay();
 	});
-	
-	// Fermer modal
+
+	pdpImg.addEventListener('click', openModal);
 	document.querySelector('.modal-close').onclick = closeModal;
-	
+
 	window.onclick = (event) => {
 		const modal = document.getElementById('memberModal');
-		if (event.target === modal) {
-			closeModal();
-		}
+		if (event.target === modal) closeModal();
 	};
-	
-	// Navigation clavier
+
 	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') {
-			closeModal();
-		} else if (e.key === 'ArrowRight') {
-			nextMember();
-			resetAutoPlay();
-		} else if (e.key === 'ArrowLeft') {
-			prevMember();
-			resetAutoPlay();
-		}
+		if (e.key === 'Escape') closeModal();
+		else if (e.key === 'ArrowRight') { nextMember(); resetAutoPlay(); }
+		else if (e.key === 'ArrowLeft') { prevMember(); resetAutoPlay(); }
 	});
 });
 </script>
