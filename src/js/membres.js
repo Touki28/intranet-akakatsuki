@@ -172,14 +172,18 @@ let autoPlayInterval;
 
 // Sélecteurs
 const pdpImg = document.getElementById('pdp');
+const nom = document.getElementById('nom');
+const prime = document.getElementById('prime');
 const counter = document.getElementById('counter');
 
 // Afficher un membre spécifique
 function showMember(index) {
 	currentIndex = index;
 
-	pdpImg.src = membersData[index].image;
-	pdpImg.alt = membersData[index].name;
+	pdpImg.src        = membersData[index].image;
+	pdpImg.alt        = membersData[index].name;
+	nom.textContent   = membersData[index].name;
+	prime.textContent = membersData[index].bounty;
 
 	counter.textContent = `${index + 1} / ${membersData.length}`;
 }

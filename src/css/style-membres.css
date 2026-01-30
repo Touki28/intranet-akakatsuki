@@ -3,7 +3,7 @@ POLICES ONE PIECE / WESTERN
 ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Playfair+Display+SC:wght@700;900&display=swap');
 
-.member, .wanted-title, .member-name, .dead-or-alive, .member-bounty, .akakatsuki-text {
+.p {
 	font-family: 'IM Fell English SC', serif;
 }
 
@@ -34,6 +34,34 @@ POLICES ONE PIECE / WESTERN
 	object-fit: cover;
 	z-index: 2;
 }
+
+.nom {
+    position: absolute;
+    top: 540px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;   /* augmenté de 1.8rem à 2.5rem */
+    font-family: 'IM Fell English SC', serif;
+    color: #2a1608;
+    font-weight: 900;
+    text-shadow: 1px 1px 0 #b98a52;
+    z-index: 3;
+}
+
+.prime {
+    position: absolute;
+    top: 595px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.5rem;     /* augmenté de 1.5rem à 2rem */
+    letter-spacing: 1px;
+    font-family: 'IM Fell English SC', serif;
+    color: #2a1608;
+    font-weight: 900;
+    text-shadow: 1px 1px 0 #b98a52;
+    z-index: 3;
+}
+
 
 /* ========================================
 BOUTONS DE NAVIGATION
