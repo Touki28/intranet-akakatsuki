@@ -5,7 +5,7 @@ const membersData = [
 		pseudo: "Pain Perdu",
 		realName: "Leheurteur Maxence",
 		image: "../img/pdp/membres/Pain.jpg",
-		bounty: 850000,
+		bounty: 0,
 		techniques: "Rinnegan, cheveux roux",
 		palmares: [
 			"A créé le site et le Discord",
@@ -19,7 +19,7 @@ const membersData = [
 		pseudo: "Konass",
 		realName: "Lepiller Floriane",
 		image: "../img/pdp/membres/Konan.jpg",
-		bounty: 650000,
+		bounty: 0,
 		techniques: "Manipulation de papier, catcheuse",
 		palmares: [
 			"Unique femme membre de l'Akatsuki",
@@ -33,7 +33,7 @@ const membersData = [
 		pseudo: "Itachibre",
 		realName: "Cantoni Bastien",
 		image: "../img/pdp/membres/Itachi.jpg",
-		bounty: 920000,
+		bounty: 0,
 		techniques: "Mangekyō Sharingan, féminisme, taper frais, dyslexique",
 		palmares: [
 			"Est amoureux de Billie Eilish",
@@ -68,7 +68,7 @@ const membersData = [
 		pseudo: "Kisamerde",
 		realName: "Girard-Fourneaux Liam",
 		image: "../img/pdp/membres/Kisame.jpg",
-		bounty: 780000,
+		bounty: 0,
 		techniques: "Affinités Suiton, épée Samehada, Super Gaulois",
 		palmares: [
 			"Est le meilleur Gaulois",
@@ -82,7 +82,7 @@ const membersData = [
 		pseudo: "Deidarabe",
 		realName: "Leroy Valentin",
 		image: "../img/pdp/membres/Deidara.jpg",
-		bounty: 690000,
+		bounty: 0,
 		techniques: "Argile explosive (Katsu), tricheur, fait du beatbox",
 		palmares: [
 			"A été attrapé en train de tricher",
@@ -96,7 +96,7 @@ const membersData = [
 		pseudo: "Sassoumi",
 		realName: "Hazet Alex",
 		image: "../img/pdp/membres/Sasori.jpg",
-		bounty: 720000,
+		bounty: 0,
 		techniques: "Marionnettiste maître, escalade, peut monter à 100%",
 		palmares: [
 			"A escaladé le mont Everest avec Inoxtag",
@@ -110,7 +110,7 @@ const membersData = [
 		pseudo: "Orochipartout",
 		realName: "Morvan Quentin",
 		image: "../img/pdp/membres/Orochimaru.jpg",
-		bounty: 810000,
+		bounty: 0,
 		techniques: "Immortalité, technique de la réincarnation, invocation de Neymar Junior, bon au foot",
 		palmares: [
 			"Joue à FC Frileuse",
@@ -124,7 +124,7 @@ const membersData = [
 		pseudo: "Grobito",
 		realName: "Elmaknasi Lucas",
 		image: "../img/pdp/membres/Obito.jpg",
-		bounty: 880000,
+		bounty: 50000,
 		techniques: "Mangekyō Sharingan (Kamui), Rinnegan, maître des larves",
 		palmares: [
 			"A géré une Coréenne de 24 ans",
@@ -138,7 +138,7 @@ const membersData = [
 		pseudo: "Kakakuzu",
 		realName: "Dumont Enzo",
 		image: "../img/pdp/membres/Kakuzu.jpg",
-		bounty: 760000,
+		bounty: 0,
 		techniques: "Jiongu (filaments noirs), maîtrise des cinq éléments, alcoolisme",
 		palmares: [
 			"A gravi les échelons jusqu'à l'Akatsuki",
@@ -152,7 +152,7 @@ const membersData = [
 		pseudo: "Hidanus",
 		realName: "Lucas Alexandre",
 		image: "../img/pdp/membres/Hidan.jpg",
-		bounty: 670000,
+		bounty: 0,
 		techniques: "Immortel, dieu Jashin",
 		palmares: [
 			"A supporté Pain Perdu pendant 2 mois lors du jeu d'entreprise",
@@ -166,7 +166,7 @@ const membersData = [
 		pseudo: "Zezettesou",
 		realName: "Foyer Emilien",
 		image: "../img/pdp/membres/Zetsu.jpg",
-		bounty: 740000,
+		bounty: 0,
 		techniques: "Mokuton, maître de l'IA, inspiration infinie, recréer la réalité grâce à ses créations",
 		palmares: [
 			"A leak la tête de tous les profs 2 semaines avant la rentrée",
@@ -194,7 +194,7 @@ function showMember(index) {
 	pdpImg.src        = membersData[index].image;
 	pdpImg.alt        = membersData[index].name;
 	nom.textContent   = membersData[index].pseudo;
-	prime.textContent = membersData[index].bounty;
+	prime.textContent = membersData[index].bounty.toLocaleString('en-US');
 
 	counter.textContent = `${index + 1} / ${membersData.length}`;
 }
