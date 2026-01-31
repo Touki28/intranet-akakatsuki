@@ -228,25 +228,24 @@ document.getElementById('prime').addEventListener('click', () => {
 });
 
 function openModal(index) {
-	const member = membersData[currentIndex];
+	const member = membersData[index];
 	const modal = document.getElementById('memberModal');
 
 	document.getElementById('modalName').textContent = member.name;
 	document.getElementById('modalImage').src = member.image;
-	document.getElementById('modalImage').alt = member.name;
 	document.getElementById('modalRealName').textContent = member.realName;
 	document.getElementById('modalTechniques').textContent = member.techniques;
 
 	const palmaresList = document.getElementById('modalPalmares');
 	palmaresList.innerHTML = '';
-	member.palmares.forEach(item => {
+	member.palmares.forEach(p => {
 		const li = document.createElement('li');
-		li.textContent = item;
+		li.textContent = p;
 		palmaresList.appendChild(li);
 	});
 
-	const loreDiv = document.getElementById('modalLore');
-	loreDiv.innerHTML = member.lore || '<p>Histoire à venir...</p>';
+	document.getElementById('modalLore').innerHTML =
+		member.lore || '<p>Histoire à venir...</p>';
 
 	modal.style.display = 'block';
 	document.body.style.overflow = 'hidden';
@@ -254,8 +253,12 @@ function openModal(index) {
 }
 
 // Fermer la modal
+document.querySelector('.modal-close').addEventListener('click', closeModal);
+
 function closeModal() {
 	const modal = document.getElementById('memberModal');
+	if (!modal) return;
+
 	modal.style.display = 'none';
 	document.body.style.overflow = 'auto';
 	startAutoPlay();
@@ -276,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		resetAutoPlay();
 	});
 
-	pdpImg.addEventListener('click', openModal);
+	pdpImg.addEventListener('click', () => openModal(currentIndex));
 	document.querySelector('.modal-close').onclick = closeModal;
 
 	window.onclick = (event) => {
