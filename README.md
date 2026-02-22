@@ -141,6 +141,4 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
   **Fait avec ❤️ (et beaucoup de procrastination) par l'Organisation Secrète des Nuages Rouges**
   
   <br>
-  
-  ⭐ N'oubliez pas de star le projet si vous aimez !
 </div>
