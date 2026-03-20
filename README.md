@@ -57,7 +57,6 @@ Ce site web sert à la fois de :
 - **HTML5 / CSS3** - Structure et design
 - **Vanilla JavaScript** - Logique applicative
 - **Firebase Authentication** - Gestion des utilisateurs
-- **Window Storage API** - Persistance des données (tier-list)
 
 ### Backend / Automation
 - **GitHub Actions** - Automatisation du téléchargement des emplois du temps
